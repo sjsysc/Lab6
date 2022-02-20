@@ -40,13 +40,15 @@ public class AppTest {
     }
 
     @Test
-    public void addBuddy() throws Exception {
-        String url = "/add/b1/a1/p1";
+    public void addAndRemoveBuddy() throws Exception {
+        String url = "/add?name=b1&address=a1&phonenumber=p1";
         this.mockMvc.perform(get(url))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("text/html;charset=UTF-8"))
-                .andExpect(content().string(containsString("b1")));
+                .andExpect(content().string(containsString("b1")))
+                .andExpect(content().string(containsString("a1")))
+                .andExpect(content().string(containsString("p1")));
 
 
         String delete = "/delete/2";
@@ -60,7 +62,6 @@ public class AppTest {
                 .andExpect(content().string(containsString("No Buddies")));
 
     }
-
 
 
 }

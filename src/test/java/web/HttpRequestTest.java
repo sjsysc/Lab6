@@ -34,8 +34,8 @@ public class HttpRequestTest {
     }
 
     @Test
-    public void addBuddy() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/add/b1/a1/p1",
+    public void addAndRemoveBuddy() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/add?name=b1&address=a1&phonenumber=p1",
                 String.class)).contains("b1");
 
         this.restTemplate.getForObject("http://localhost:" + port + "/delete/2",

@@ -22,8 +22,8 @@ public class addressBookController {
         return "buddies";
     }
 
-    @GetMapping("/add/{buddy_name}/{buddy_address}/{buddy_phonenumber}")
-    public String deleteBuddy(@PathVariable String buddy_name, String buddy_address, String buddy_phonenumber, Model model){
+    @GetMapping("/add")
+    public String deleteBuddy(@RequestParam(name="name", required=true) String buddy_name,@RequestParam(name="address", required=true) String buddy_address, @RequestParam(name="phonenumber", required=true) String buddy_phonenumber,  Model model){
         AddressBook book  = addressBookRepository.findById(new Long(1)).orElse(new AddressBook("AddressBook",new Long(1)));
         BuddyInfo b=new BuddyInfo(buddy_name,buddy_address,buddy_phonenumber);
         b.setAddressBook(book);
