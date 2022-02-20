@@ -38,13 +38,6 @@ public class HttpRequestTest {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/add/b1/a1/p1",
                 String.class)).contains("b1");
 
-    }
-
-    @Test
-    public void removeBuddy() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/add/b1/a1/p1",
-                String.class)).contains("b1");
-
         this.restTemplate.getForObject("http://localhost:" + port + "/delete/2",
                 String.class);
 
@@ -52,6 +45,7 @@ public class HttpRequestTest {
                 String.class)).contains("No Buddies");
 
     }
+
 
 
 }

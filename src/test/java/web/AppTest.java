@@ -48,12 +48,6 @@ public class AppTest {
                 .andExpect(content().contentType("text/html;charset=UTF-8"))
                 .andExpect(content().string(containsString("b1")));
 
-    }
-
-    @Test
-    public void removeBuddy() throws Exception {
-        String url = "/add/b1/a1/p1";
-        this.mockMvc.perform(get(url));
 
         String delete = "/delete/2";
         this.mockMvc.perform(get(delete));
@@ -66,6 +60,7 @@ public class AppTest {
                 .andExpect(content().string(containsString("No Buddies")));
 
     }
+
 
 
 }
