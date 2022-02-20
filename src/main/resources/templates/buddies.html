@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Buddies</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 th:text="${addressBookName}"></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Name </th>
+                    <th> Address </th>
+                    <th> Phone Number </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${buddies!=null and buddies.empty}">
+                    <td colspan="2"> No Buddies </td>
+                </tr>
+                <tr th:each="buddy : ${buddies}">
+                    <form action="#" class="form-horizontal" th:action="@{/delete/__${buddy.id}__}" >
+                        <td><span th:text="${buddy.id}">  </span></td>
+                        <td><span th:text="${buddy.name}">  </span></td>
+                        <td><span th:text="${buddy.address}">  </span></td>
+                        <td><span th:text="${buddy.phoneNumber}">  </span></td>
+                        <td><input type="submit" id="deleteButton" class="btn btn-primary" th:value="Delete"><td>
+                    </form>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Book</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="spa.js"></script>
+
+</head>
+<body>
+<form action="#" th:action="@{/bookform}" th:object="${newBuddy}" method="post">
+    Name: <input type="text" th:field="*{name}" id="name"> <br>
+    Address: <input type="text" th:field="*{address}" id="address"> <br>
+    Phone Number: <input type="text" th:field="*{phoneNumber}" id="phonenumber"> <br>
+    <button type="submit" id="submit">Add new buddy</button>
+</form>
+</body>
+</html>
